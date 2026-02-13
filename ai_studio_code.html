@@ -93,7 +93,7 @@
 
         .vinyl-record:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 40px rgba(212, 165, 192, 0.4);
+            box-shadow: 0 12px 40px rgba(212,165,192,0.4);
         }
 
         .vinyl-record.playing {
@@ -1145,7 +1145,7 @@ I hope we can go on like this for a long time.
                 <div class="photo-collage">
                     <div class="polaroid pol-1"><img src="pics/IMG_9794.png" alt="Memory8"></div>
                     <div class="polaroid pol-2"><img src="pics/IMG_9886.png" alt="Memory8"></div>
-                    <div class="polaroid pol-3"><img src="pics/CDA57CF6-D8F2-42EE-A0FB-DE76547EA5BA.JPG" alt="Memory8"></div>
+                                       <div class="polaroid pol-3"><img src="pics/CDA57CF6-D8F2-42EE-A0FB-DE76547EA5BA.JPG" alt="Memory8"></div>
                 </div>
             </div>
         </div>
@@ -1181,12 +1181,64 @@ I hope we can go on like this for a long time.
     const playlist = [
         { title: 'My Beautiful', file: 'musics/my_beautiful.mp3' },
         { title: 'Hush', file: 'musics/Hush.mp3' }
-        // Add more songs as needed:
-        // { title: 'Song 3', file: 'musics/song3.mp3' }
     ];
     
     let currentSongIndex = 0;
     let isPlaying = false;
+    
+    // ===== 跨页面音乐同步功能 =====
+    // 保存音乐状态到 localStorage
+    function saveMusicState() {
+        const state = {
+            currentSongIndex: currentSongIndex,
+            isPlaying: isPlaying,
+            currentTime: audioPlayer.currentTime,
+            timestamp: Date.now()
+        };
+        localStorage.setItem('musicState', JSON.stringify(state));
+    }
+    
+    // 从 localStorage 恢复音乐状态
+    function restoreMusicState() {
+        const savedState = localStorage.getItem('musicState');
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            // 只恢复5秒内的状态（避免恢复太旧的状态）
+            if (Date.now() - state.timestamp < 5000) {
+                currentSongIndex = state.currentSongIndex;
+                audioPlayer.src = playlist[currentSongIndex].file;
+                audioPlayer.currentTime = state.currentTime;
+                if (state.isPlaying) {
+                    audioPlayer.play().then(() => {
+                        isPlaying = true;
+                        updateUI();
+                    }).catch(() => {
+                        isPlaying = false;
+                        updateUI();
+                    });
+                } else {
+                    isPlaying = false;
+                    updateUI();
+                }
+                initPlaylist();
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // 定期保存播放状态
+    setInterval(() => {
+        if (audioPlayer.src) {
+            saveMusicState();
+        }
+    }, 500);
+    
+    // 页面即将离开时保存状态
+    window.addEventListener('beforeunload', () => {
+        saveMusicState();
+    });
+    // ===== 跨页面音乐同步功能结束 =====
     
     // 初始化歌单
     function initPlaylist() {
@@ -1284,13 +1336,20 @@ I hope we can go on like this for a long time.
     window.addEventListener('load', () => {
         setTimeout(() => {
             audioPlayer.volume = 0.7; // Set volume to 70%
-            playSong(0);
-            // Handle auto-play restrictions in some browsers
-            audioPlayer.play().catch(error => {
-                console.log('Auto-play was prevented. User interaction needed.');
-                isPlaying = false;
-                updateUI();
-            });
+            
+            // 尝试恢复之前的播放状态
+            const restored = restoreMusicState();
+            
+            // 如果没有恢复状态，则播放第一首
+            if (!restored) {
+                playSong(0);
+                // Handle auto-play restrictions in some browsers
+                audioPlayer.play().catch(error => {
+                    console.log('Auto-play was prevented. User interaction needed.');
+                    isPlaying = false;
+                    updateUI();
+                });
+            }
         }, 1000);
     });
     
