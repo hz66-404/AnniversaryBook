@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>This one is for my Thao</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+
+/* 黑客帝国风格背景 */
+body {
+	background: #000000 !important;  /* 纯黑背景 */
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: auto !important;
+	position: relative !important;
+}
+
+/* 代码雨 canvas 背景 */
+#matrixRain {
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	z-index: -1 !important;  /* 放在最底层 */
+	opacity: 0.8 !important;  /* 稍微透明，不要太抢眼 */
+}
+
+/* 代码区域调整 - 增加对比度 */
+#code {
+	font-size: 16px !important;
+	width: 450px !important;
+	height: auto !important;  /* 自动高度，完全包裹内容 */
+	max-height: none !important;  /* 取消最大高度限制 */
+	min-height: 500px !important;  /* 最小高度 */
+	margin: 20px 0 30px 0 !important;
+	padding: 20px 20px 30px 20px !important;  /* 底部多一点padding */
+	line-height: 1.6 !important;
+	position: absolute !important;  /* 绝对定位 */
+	left: 50% !important;  /* 从屏幕中心开始 */
+	transform: translateX(-100%) translateX(-20px) !important;  /* 向左移动自身宽度+20px间距 */
+	color: #00ff00 !important;  /* 黑客帝国绿色 */
+	background: rgba(0, 0, 0, 0.7) !important;  /* 半透明黑色背景 */
+	border: 2px solid #00ff00 !important;  /* 绿色边框，加粗到2px */
+	border-radius: 10px !important;
+	box-shadow: 0 0 20px rgba(0, 255, 0, 0.3) !important;  /* 绿色光晕 */
+	box-sizing: border-box !important;  /* 确保边框包含在宽高内 */
+	overflow: visible !important;  /* 确保内容不被裁剪 */
+}
+
+#code .comments {
+	color: #ff69b4 !important;  /* 粉色注释 */
+	font-weight: normal !important;
+}
+
+#code span.comments {
+	color: #ff69b4 !important;  /* 确保span标签的注释也是粉色 */
+}
+
+#code .string {
+	color: #00ffff !important;  /* 青色字符串 */
+}
+
+#code .keyword {
+	color: #ffff00 !important;  /* 黄色关键字 */
+}
+
+#loveHeart {
+	position: absolute !important;  /* 绝对定位 */
+	left: 50% !important;  /* 从屏幕中心开始 */
+	transform: translateX(20px) !important;  /* 向右移动20px间距 */
+	width: 650px !important;
+	margin: 20px 0 20px 0 !important;
+}
+
+#mainDiv {
+	width: 100% !important;
+	min-width: 1200px !important;
+	position: relative !important;  /* 相对定位，作为子元素的参考 */
+}
+
+#content {
+	position: relative !important;
+	min-height: 700px !important;  /* 确保有足够高度 */
+}
+
+/* 文字信息区域调整 */
+#words {
+	color: #00ff00 !important;  /* 绿色文字 */
+	text-shadow: 0 0 10px rgba(0, 255, 0, 0.5) !important;  /* 文字发光 */
+}
+
+#messages {
+	color: #00ff00 !important;
+	text-shadow: 0 0 15px rgba(0, 255, 0, 0.8) !important;
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<!-- 黑客帝国代码雨背景 -->
+<canvas id="matrixRain"></canvas>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments"> * CODE OF US</span><br />
+			<span class="space"/><span class="comments"> */</span><br />
+
+			Hey Thao,<br />
+			<br />
+			Do you remember when we first met?<br />
+			<br />
+			<span class="comments">// Somewhere between talking and laughing,</span><br />
+			I didn't notice when I began to fall;<br />
+			<br />
+			We shared ordinary days;<br />
+			<span class="comments">// And quietly made them ours;</span><br />
+			<br />
+			There were arguments;<br />
+			<span class="comments">// But we never stopped coming back;</span><br />
+			<br />
+			You became my home;<br />
+			<span class="comments">// And the future I hope for;</span><br />
+			<br />
+			And even now,<br />
+			I hope we never stop walking this road together.<br />
+			<span class="comments">// So if you feel it too,</span><br />
+			<span class="comments">// touch the heart below;</span><br />
+
+
+
+
+		
+			<span id="heartspan">
+			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					  1 year anniversary happy 
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					I LOVE YOU SO MUCH<br/>
+					<div class="signature">- Han</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2025, 1, 17);  // 2025年2月17日（月份从0开始，1=2月）
+together.setHours(20);               // 晚上8点
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+
+// 黑客帝国代码雨效果
+(function() {
+	var canvas = document.getElementById('matrixRain');
+	var ctx = canvas.getContext('2d');
+	
+	// 设置 canvas 尺寸
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	
+	// 字符集 - 数字、字母、日文片假名
+	var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+	chars = chars.split('');
+	
+	var fontSize = 14;
+	var columns = canvas.width / fontSize;
+	var drops = [];
+	var loveMessage = 'Han loves Thao ♥ ';  // 爱的消息
+	var specialColumns = [];  // 特殊列，显示爱的消息
+	
+	// 初始化每列的位置
+	for (var i = 0; i < columns; i++) {
+		drops[i] = Math.random() * canvas.height / fontSize;
+		// 随机选择一些列显示爱的消息（约15%的列）
+		if (Math.random() > 0.85) {
+			specialColumns[i] = {
+				isSpecial: true,
+				messageIndex: 0,
+				color: Math.random() > 0.5 ? '#ff69b4' : '#ff1493'  // 随机粉色
+			};
+		} else {
+			specialColumns[i] = { isSpecial: false };
+		}
+	}
+	
+	function draw() {
+		// 半透明黑色覆盖，产生拖尾效果
+		ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+		ctx.font = fontSize + 'px monospace';
+		
+		for (var i = 0; i < drops.length; i++) {
+			var text;
+			var color;
+			
+			// 判断是否是特殊列（显示爱的消息）
+			if (specialColumns[i].isSpecial) {
+				// 粉色爱的消息
+				color = specialColumns[i].color;
+				text = loveMessage[specialColumns[i].messageIndex % loveMessage.length];
+				specialColumns[i].messageIndex++;
+			} else {
+				// 普通绿色代码雨
+				color = '#0f0';
+				text = chars[Math.floor(Math.random() * chars.length)];
+			}
+			
+			ctx.fillStyle = color;
+			// 绘制字符
+			ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+			
+			// 随机重置位置，产生不连续效果
+			if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+				drops[i] = 0;
+				// 重置时可能改变列的类型
+				if (Math.random() > 0.9) {
+					specialColumns[i].isSpecial = !specialColumns[i].isSpecial;
+					specialColumns[i].messageIndex = 0;
+					specialColumns[i].color = Math.random() > 0.5 ? '#ff69b4' : '#ff1493';
+				}
+			}
+			drops[i]++;
+		}
+	}
+	
+	// 动画循环
+	setInterval(draw, 33);
+	
+	// 窗口大小改变时重新设置 canvas
+	window.addEventListener('resize', function() {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		columns = canvas.width / fontSize;
+		drops = [];
+		specialColumns = [];
+		for (var i = 0; i < columns; i++) {
+			drops[i] = Math.random() * canvas.height / fontSize;
+			if (Math.random() > 0.85) {
+				specialColumns[i] = {
+					isSpecial: true,
+					messageIndex: 0,
+					color: Math.random() > 0.5 ? '#ff69b4' : '#ff1493'
+				};
+			} else {
+				specialColumns[i] = { isSpecial: false };
+			}
+		}
+	});
+})();
+</script>
+</body>
+</html>
