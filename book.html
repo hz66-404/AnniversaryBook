@@ -64,6 +64,13 @@
         .love-text.anim-2 { animation: float-medium 10s ease-in-out infinite; }
         .love-text.anim-3 { animation: float-fast 12s ease-in-out infinite; }
 
+        /* 特别突出的语言（中文、英文、越南语） */
+        .love-text.highlight {
+            color: rgba(255, 105, 180, 0.8) !important; /* 深粉色，更高透明度 */
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
         /* ----------------------- 
            黑胶唱片播放器 
         ----------------------- */
@@ -625,12 +632,12 @@
 <audio id="audioPlayer" preload="auto"></audio>
 
 <!-- 背景"我爱你"多语言文字 -->
-<div class="love-text size-1 anim-1" style="top: 5%; left: 8%;">I Love You</div>
-<div class="love-text size-3 anim-2" style="top: 12%; right: 15%;">我爱你</div>
+<div class="love-text size-1 anim-1 highlight" style="top: 5%; left: 8%;">I Love You</div>
+<div class="love-text size-3 anim-2 highlight" style="top: 12%; right: 15%;">我爱你</div>
 <div class="love-text size-2 anim-1" style="top: 20%; left: 25%;">Je t'aime</div>
 <div class="love-text size-4 anim-3" style="top: 28%; right: 30%;">사랑해요</div>
 <div class="love-text size-5 anim-2" style="top: 35%; left: 5%;">Ti amo</div>
-<div class="love-text size-2 anim-1" style="top: 42%; right: 8%;">Anh yêu em</div>
+<div class="love-text size-2 anim-1 highlight" style="top: 42%; right: 8%;">Anh yêu em</div>
 <div class="love-text size-3 anim-3" style="top: 50%; left: 18%;">Ich liebe dich</div>
 <div class="love-text size-1 anim-2" style="top: 58%; right: 22%;">愛してる</div>
 <div class="love-text size-4 anim-1" style="top: 65%; left: 12%;">Te amo</div>
@@ -638,7 +645,7 @@
 <div class="love-text size-2 anim-2" style="top: 80%; left: 28%;">Я тебя люблю</div>
 <div class="love-text size-3 anim-1" style="top: 88%; right: 12%;">أحبك</div>
 <div class="love-text size-1 anim-3" style="top: 15%; left: 45%;">Ik hou van jou</div>
-<div class="love-text size-4 anim-2" style="top: 25%; right: 45%;">我愛你</div>
+<div class="love-text size-4 anim-2 highlight" style="top: 25%; right: 45%;">我愛你</div>
 <div class="love-text size-2 anim-1" style="top: 38%; left: 40%;">Jeg elsker deg</div>
 <div class="love-text size-5 anim-3" style="top: 48%; right: 40%;">Amo-te</div>
 <div class="love-text size-3 anim-2" style="top: 62%; left: 42%;">Kocham Cię</div>
@@ -1140,7 +1147,7 @@ I hope we can go on like this for a long time.
 </p>
                 </div>
             </div>
-            <div class="back">
+                       <div class="back">
                 <!-- 第八页的左侧：照片 -->
                 <div class="photo-collage">
                     <div class="polaroid pol-1"><img src="pics/IMG_9794.png" alt="Memory8"></div>
