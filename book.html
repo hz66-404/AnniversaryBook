@@ -10,19 +10,7 @@
         :root {
             --book-bg: #fff0f5; /* 淡粉色背景 */
             --leather: #d4748f; /* 粉色皮革 */
-                   <!-- 第四张叶子：正面是第三页        <!-- 新增：How you've quietly changed me 的        <!-- 第五张叶子：正面是第四页的        <!-- 新增：The Th        <!-- 新增：The Thin        <!-- 第六张叶子：正面是第五页        <!-- Extension p        <!-- Extension         <!-- 第七张叶子：正面是第        <!-- 新增：What We Can Do Together in the Future 的延续页 -->
-        <div class="page" style="z-index: 0;" onclick="flip(this)">的右侧(内容) / 背面是第七页的左侧(照片) -->
-        <div class="page" style="z-index: 1;" onclick="flip(this)">ge 2: The Things We Did Together This Year -->
-        <div class="page" style="z-index: 2;" onclick="flip(this)">e 1: The Things We Did Together This Year -->
-        <div class="page" style="z-index: 3;" onclick="flip(this)">侧(内容) / 背面是第六页的左侧(照片) -->
-        <div class="page" style="z-index: 4;" onclick="flip(this)"> We Did Together This Year 的延续页2 -->
-        <div class="page" style="z-index: 5;" onclick="flip(this)">gs We Did Together This Year 的延续页1 -->
-        <div class="page" style="z-index: 6;" onclick="flip(this)">(内容) / 背面是封底 -->
-        <div class="page" style="z-index: 7;" onclick="flip(this)">页1 -->
-        <div class="page" style="z-index: 9;" onclick="flip(this)">侧(内容) / 背面是第四页的左侧(照片) -->
-        <div class="page" style="z-index: 10;" onclick="flip(this)">
-            <div class="front">    <!-- 第四张叶子：正面是第三页的右侧(内容) / 背面是第四页的左侧(照片) -->
-        <div class="page" style="z-index: 10;" onclick="flip(this)">--gold: #f4a5c0; /* 粉金色 */
+            --gold: #f4a5c0; /* 粉金色 */
             --rose: #ff69b4; /* 亮粉色 */
         }
 
@@ -33,7 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             overflow: hidden;
             position: relative;
         }
@@ -76,6 +64,15 @@
         .love-text.anim-2 { animation: float-medium 10s ease-in-out infinite; }
         .love-text.anim-3 { animation: float-fast 12s ease-in-out infinite; }
 
+        /* 特别突出的语言（中文、英文、越南语） */
+        .love-text.highlight {
+            color: #ff1493 !important; /* 深粉红色 DeepPink */
+            font-weight: 900 !important;
+            font-size: 1.3em !important; /* 稍微大一点 */
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.8), 0 0 30px rgba(255, 20, 147, 0.5) !important;
+            opacity: 1 !important;
+        }
+
         /* ----------------------- 
            黑胶唱片播放器 
         ----------------------- */
@@ -105,7 +102,7 @@
 
         .vinyl-record:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 40px rgba(212, 165, 192, 0.4);
+            box-shadow: 0 12px 40px rgba(212,165,192,0.4);
         }
 
         .vinyl-record.playing {
@@ -191,7 +188,7 @@
             border-radius: 20px;
             padding: 8px 20px;
             color: #c98ba8;
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Georgia', serif;
             font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -235,7 +232,7 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Georgia', serif;
             font-size: 13px;
             color: #333;
             margin-bottom: 5px;
@@ -259,7 +256,7 @@
             border: 2px solid #d4a5c0;
             border-radius: 15px;
             padding: 10px 15px;
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Georgia', serif;
             font-size: 12px;
             color: #c98ba8;
             max-width: 200px;
@@ -502,22 +499,23 @@
         }
 
         .text-container h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px; /* 从32px减小到24px */
+            font-family: 'Georgia', serif;
+            font-size: 20px; /* 增加标题大小 */
             font-style: italic;
             color: var(--leather);
             margin-top: 0; /* 去除顶部margin */
-            margin-bottom: 30px;
-            line-height: 1.2;
+            margin-bottom: 1px; /* 缩短横线和文字之间的间距 */
+            line-height: 1.3;
             border-bottom: 2px solid var(--rose);
             padding-bottom: 10px;
             display: inline-block;
+            font-weight: 600;
         }
 
         .text-container p {
-            font-size: 11.3px; /* 从19px减小到16px */
-            line-height: 2.2;
-            color: #444;
+            font-size: 14px; /* 增加正文字号，从11.3px到14px */
+            line-height: 1.9;
+            color: #333;
             white-space: pre-wrap;
             text-align: justify;
         }
@@ -528,7 +526,7 @@
         }
 
         .text-container.font-sm p {
-            font-size: 10px;
+            font-size: 13px;
         }
 
         .text-container.font-md p {
@@ -566,7 +564,7 @@
             border-radius: 30px;
             cursor: pointer;
             font-size: 18px;
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Georgia', serif;
             margin-top: 40px;
             transition: all 0.3s;
             text-decoration: none;
@@ -592,11 +590,12 @@
         }
 
         .preface h2 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 60px;
+            font-family: 'Georgia', serif;
+            font-size: 48px;
             color: var(--leather);
             margin: 0;
-            letter-spacing: 20px;
+            letter-spacing: 8px;
+            font-weight: 400;
             font-weight: 300;
         }
 
@@ -635,12 +634,12 @@
 <audio id="audioPlayer" preload="auto"></audio>
 
 <!-- 背景"我爱你"多语言文字 -->
-<div class="love-text size-1 anim-1" style="top: 5%; left: 8%;">I Love You</div>
-<div class="love-text size-3 anim-2" style="top: 12%; right: 15%;">我爱你</div>
+<div class="love-text size-1 anim-1 highlight" style="top: 5%; left: 8%;">I Love You</div>
+<div class="love-text size-3 anim-2 highlight" style="top: 12%; right: 15%;">我爱你</div>
 <div class="love-text size-2 anim-1" style="top: 20%; left: 25%;">Je t'aime</div>
 <div class="love-text size-4 anim-3" style="top: 28%; right: 30%;">사랑해요</div>
 <div class="love-text size-5 anim-2" style="top: 35%; left: 5%;">Ti amo</div>
-<div class="love-text size-2 anim-1" style="top: 42%; right: 8%;">Anh yêu em</div>
+<div class="love-text size-2 anim-1 highlight" style="top: 42%; right: 8%;">Anh yêu em</div>
 <div class="love-text size-3 anim-3" style="top: 50%; left: 18%;">Ich liebe dich</div>
 <div class="love-text size-1 anim-2" style="top: 58%; right: 22%;">愛してる</div>
 <div class="love-text size-4 anim-1" style="top: 65%; left: 12%;">Te amo</div>
@@ -648,7 +647,7 @@
 <div class="love-text size-2 anim-2" style="top: 80%; left: 28%;">Я тебя люблю</div>
 <div class="love-text size-3 anim-1" style="top: 88%; right: 12%;">أحبك</div>
 <div class="love-text size-1 anim-3" style="top: 15%; left: 45%;">Ik hou van jou</div>
-<div class="love-text size-4 anim-2" style="top: 25%; right: 45%;">我愛你</div>
+<div class="love-text size-4 anim-2 highlight" style="top: 25%; right: 45%;">我愛你</div>
 <div class="love-text size-2 anim-1" style="top: 38%; left: 40%;">Jeg elsker deg</div>
 <div class="love-text size-5 anim-3" style="top: 48%; right: 40%;">Amo-te</div>
 <div class="love-text size-3 anim-2" style="top: 62%; left: 42%;">Kocham Cię</div>
@@ -769,7 +768,7 @@
         <!-- 第二张叶子：正面是第一页的右侧(内容) / 背面是第二页的左侧(照片) -->
         <div class="page" style="z-index: 14;" onclick="flip(this)">
             <div class="front">
-                <div class="text-container">
+                <div class="text-container font-sm">
                     <h2>Why I want to make this e-book</h2>
                     <p>Hi Thao,
 
@@ -992,9 +991,9 @@ I made mushroom sliders for the first time. They were actually a bit too greasy,
                 <div class="text-container">
                     <h2>The Things We Did Together This Year</h2>
                     <p>
-                       We went to Edinburgh again. I remember you were probably angry that day too. Later, I took you to eat at Castle Course and showed you where I worked. The weather was really nice that day. My band performed again, although the performance wasn’t great that time. We went to a networking event together. I went to Costco for the first time and bought a lot of beef. You thought it was too expensive, but you didn’t scold me—probably because I was spending my own money, haha.
+                       We went to Edinburgh again. I remember you were probably angry that day too. Later, I took you to eat at Castle Course and showed you where I worked. The weather was really nice that day. My band performed again, although the performance wasn't great that time. We went to a networking event together. I went to Costco for the first time and bought a lot of beef. You thought it was too expensive, but you didn't scold me—probably because I was spending my own money, haha.
 
-You wore your red gown and we went to take photos together. Your dissertation. You also bought me ice cream—it was really good. You took photos of me and my car. Later, we went to watch the torch procession. There isn’t much space left, so I can only rush through the rest. Your graduation soak—you didn’t wear a sexy swimsuit, minus points. We made bracelets together. You ran 10 kilometers, which is honestly so impressive. You also came with me to play sports and helped carry my bag. And I think it was that day when you accidentally hit my head.
+You wore your red gown and we went to take photos together. Your dissertation. You also bought me ice cream—it was really good. You took photos of me and my car. Later, we went to watch the torch procession. Your graduation soak—you didn't wear a sexy swimsuit, minus points. We made bracelets together. You ran 10 kilometers, which is honestly so impressive. You also came with me to play sports and helped carry my bag. And I think it was that day when you accidentally hit my head.
 
 Looking back, some of these things were important, and some of them were very small. But put together, they became our entire year.
                     </p>
@@ -1150,12 +1149,12 @@ I hope we can go on like this for a long time.
 </p>
                 </div>
             </div>
-            <div class="back">
+                       <div class="back">
                 <!-- 第八页的左侧：照片 -->
                 <div class="photo-collage">
                     <div class="polaroid pol-1"><img src="pics/IMG_9794.png" alt="Memory8"></div>
                     <div class="polaroid pol-2"><img src="pics/IMG_9886.png" alt="Memory8"></div>
-                    <div class="polaroid pol-3"><img src="pics/CDA57CF6-D8F2-42EE-A0FB-DE76547EA5BA.JPG" alt="Memory8"></div>
+                                       <div class="polaroid pol-3"><img src="pics/CDA57CF6-D8F2-42EE-A0FB-DE76547EA5BA.JPG" alt="Memory8"></div>
                 </div>
             </div>
         </div>
@@ -1165,14 +1164,14 @@ I hope we can go on like this for a long time.
             <div class="front">
                 <div class="text-container">
                     <h2>What I want to</h2>
-                    <p>I want to walk far and long with you, Miss Thao.</p>
+                    <p>I want to walk a long way through this life with you, Miss Thao.</p>
                 </div>
             </div>
         
             <div class="back cover">
                 <h1>Our Story</h1>
                 <p style="color: white; margin-top: 20px;">A journey that never ends...</p>
-                <a href="LoveProject/time.html" class="jump-button">See Our Time Together →</a>
+                <a href="LoveProject/time.html" target="_blank" class="jump-button">Click for a Surprise ✨</a>
             </div>
         </div>
 
@@ -1191,12 +1190,64 @@ I hope we can go on like this for a long time.
     const playlist = [
         { title: 'My Beautiful', file: 'musics/my_beautiful.mp3' },
         { title: 'Hush', file: 'musics/Hush.mp3' }
-        // Add more songs as needed:
-        // { title: 'Song 3', file: 'musics/song3.mp3' }
     ];
     
     let currentSongIndex = 0;
     let isPlaying = false;
+    
+    // ===== 跨页面音乐同步功能 =====
+    // 保存音乐状态到 localStorage
+    function saveMusicState() {
+        const state = {
+            currentSongIndex: currentSongIndex,
+            isPlaying: isPlaying,
+            currentTime: audioPlayer.currentTime,
+            timestamp: Date.now()
+        };
+        localStorage.setItem('musicState', JSON.stringify(state));
+    }
+    
+    // 从 localStorage 恢复音乐状态
+    function restoreMusicState() {
+        const savedState = localStorage.getItem('musicState');
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            // 只恢复5秒内的状态（避免恢复太旧的状态）
+            if (Date.now() - state.timestamp < 5000) {
+                currentSongIndex = state.currentSongIndex;
+                audioPlayer.src = playlist[currentSongIndex].file;
+                audioPlayer.currentTime = state.currentTime;
+                if (state.isPlaying) {
+                    audioPlayer.play().then(() => {
+                        isPlaying = true;
+                        updateUI();
+                    }).catch(() => {
+                        isPlaying = false;
+                        updateUI();
+                    });
+                } else {
+                    isPlaying = false;
+                    updateUI();
+                }
+                initPlaylist();
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // 定期保存播放状态
+    setInterval(() => {
+        if (audioPlayer.src) {
+            saveMusicState();
+        }
+    }, 500);
+    
+    // 页面即将离开时保存状态
+    window.addEventListener('beforeunload', () => {
+        saveMusicState();
+    });
+    // ===== 跨页面音乐同步功能结束 =====
     
     // 初始化歌单
     function initPlaylist() {
@@ -1294,13 +1345,20 @@ I hope we can go on like this for a long time.
     window.addEventListener('load', () => {
         setTimeout(() => {
             audioPlayer.volume = 0.7; // Set volume to 70%
-            playSong(0);
-            // Handle auto-play restrictions in some browsers
-            audioPlayer.play().catch(error => {
-                console.log('Auto-play was prevented. User interaction needed.');
-                isPlaying = false;
-                updateUI();
-            });
+            
+            // 尝试恢复之前的播放状态
+            const restored = restoreMusicState();
+            
+            // 如果没有恢复状态，则播放第一首
+            if (!restored) {
+                playSong(0);
+                // Handle auto-play restrictions in some browsers
+                audioPlayer.play().catch(error => {
+                    console.log('Auto-play was prevented. User interaction needed.');
+                    isPlaying = false;
+                    updateUI();
+                });
+            }
         }, 1000);
     });
     
